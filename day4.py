@@ -35,5 +35,17 @@ def check_if_fully_contains_and_calc_result(list):
             result += 1
     return result
 
+# Answer for part one
 print(check_if_fully_contains_and_calc_result(list_with_range_as_string))
 
+# Part two
+
+# Check if there is any intersection
+def check_if_any_itersection(set):
+    result = 0
+    for value in set:
+        if not value[0].isdisjoint(value[1]):
+            result +=1
+    return result
+
+print(check_if_any_itersection(list_with_range_as_string))

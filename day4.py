@@ -14,9 +14,9 @@ def change_range_to_string(range_string):
     list_of_start_stop = range_string.split('-')
     start = int(list_of_start_stop[0])
     stop = int(list_of_start_stop[1])
-    range_list = list(range(start, stop+1))
-    range_string = ','.join(map(str,range_list))
-    return range_string
+    range_list = set(range(start, stop+1))
+    # range_string = ','.join(map(str,range_list))
+    return range_list
 
 # Parsing each asignment pair string to a list of numbers in a given range
 def parse_input_list_range(input):
@@ -29,11 +29,9 @@ list_with_range_as_string = parse_input_list_range(input_list)
 
 # Check if an assigment is fully covered by both elves
 def check_if_fully_contains_and_calc_result(list):
-    print(list)
     result = 0
     for value in list:
-        if value[0] in value[1] or value[1] in value[0]:
-            print(value)
+        if value[0].issubset(value[1]) or value[1].issubset(value[0]):
             result += 1
     return result
 

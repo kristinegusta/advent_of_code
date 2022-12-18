@@ -33,16 +33,12 @@ for move in rearrangement_procedure:
     from_this_stack = positions[move[1]-1]
     to_this_stack = positions[move[2]-1]
 
-    if amount_of_boxes_to_move == 1:
-        removed_box = from_this_stack.pop()
-        to_this_stack.append(removed_box)
-    else:
-        # Get the items and append them
-        removed_boxes = from_this_stack[-amount_of_boxes_to_move:]
-        for box in removed_boxes:
-            to_this_stack.append(box)
-        # Then, remove from original
-        del from_this_stack[-amount_of_boxes_to_move:]
+     # Get the items and append them
+    removed_boxes = from_this_stack[-amount_of_boxes_to_move:]
+    for box in removed_boxes:
+        to_this_stack.append(box)
+    # Then, remove from original
+    del from_this_stack[-amount_of_boxes_to_move:]
 
 
 # Get the puzzle answer
